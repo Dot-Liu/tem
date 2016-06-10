@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/sql_scripts/database_create.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sql_scripts/table_letter.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sql_scripts/table_letter_detail.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sql_scripts/table_mate.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sql_scripts/table_userinfo.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sql_scripts/table_verify.sql" charset="UTF-8" />
+  </component>
+</project>
