@@ -72,9 +72,9 @@ class UserInfoSet:
             return output(700)
         return output(200)
 
-@route('/api/user/info/check')
+@route('/api/user/name')
 class UserInfoCheck:
-    def POST(self):
+    def GET(self):
         session = web.ctx.session
         if not session.has_key('user_id'):
             return output(411)
@@ -84,7 +84,6 @@ class UserInfoCheck:
         db =getDb()
         result = db.select('userinfo',var ={'user_id':user_id},
                            where = 'user_id=$user_id',
-                           what = 'name,email,address,qq,phone,gender')
+                           what = 'name')
         res = result[0]
-        return output(200,{'name':res.name,'email':res.email,'address':res.address,
-                           'qq':res.qq,'phone':res.phone,'gender':res.gender})
+        return output(200,{'name':res.name})

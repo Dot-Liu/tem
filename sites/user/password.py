@@ -22,7 +22,7 @@ class UserPasswordForget:
 
         db = getDb()
         results = db.select('user', vars = {'login_name' : input.email},
-                            where = "login_name=$email and type!='2'", what = "user_id")
+                            where = "login_name=$login_name and type!='2'", what = "user_id")
         if len(results) == 0:
             return output(422)
 

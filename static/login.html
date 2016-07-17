@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Oletter</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/login.js"></script>
+	</head>
+	<body>
+		<div class="login-content">
+			<div class="logo-content">
+				<img src="img/logo.png" class="login-logo">
+				<p class="explanation">写一封书信,遇到有缘分的人</p>
+			</div>
+			<div class="login-box">
+			<!-- 验证提示 -->
+			    <span class="tip error hidden" id="err-null">请将注册信息填完整</span>
+				<span class="tip error hidden" id="err-email">账号不存在</span>
+				<span class="tip error hidden" id="err-psw">密码不正确</span>
+				<span class="tip error hidden" id="err-server">服务器错误请稍后再试</span>
+				<!--  -->
+				<input type="text" id="ilogin-name" class="login-name input-text" placeholder="请输入登录邮箱">
+				<input type="password" id="ilogin-psw" class="login-password input-text" placeholder="请输入你的密码">
+				<div class="remember-forget-box">
+					<div class="remember-if option-box">
+						<span class="single-option"></span>
+						<input type="checkbox" value="None"class="remember" id="iremember"name="check" checked="">
+						<label for="iremember">记住密码</label>
+					</div>
+					<a class="forget-password" href="forget.html">忘记密码</a>
+				</div>
+				
+				<button class="btn-submit btn-green" type="submit" id="btn-login">登录</button>
+			</div>
+		</div>
+	</body>
+</html>

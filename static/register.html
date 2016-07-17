@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Oletter</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/register.js"></script>
+	</head>
+	<body>
+		<div class="register-content">
+			<div class="logo-content">
+				<img src="img/logo.png" class="login-logo">
+				<p class="explanation">写一封书信,遇到有缘分的人</p>
+			</div>
+			<div class="register-box">
+				<!-- 验证提示 -->
+				<span class="tip correct hidden" id="tip-send">验证码已发送</span>
+				<span class="tip correct hidden" id="tip-success">注册成功</span>
+				<span class="tip error hidden" id="err-null">请将注册信息填完整</span>
+				<span class="tip error hidden" id="err-exist">账户已存在</span>
+				<span class="tip error hidden" id="err-email">邮箱类型错误</span>
+				<span class="tip error hidden" id="err-name-len">账户长度为0~20字符</span>
+				<span class="tip error hidden" id="err-captcha">验证码失效，请重新发送</span>
+				<span class="tip error hidden" id="err-server">服务器错误请稍后再试</span>
+				<span class="tip error hidden" id="err-null-email">你的邮箱为空</span>
+				<span class="tip error hidden" id="err-psw-len">密码长度不合法（6-18位）</span>
+				<span class="tip error hidden" id="err-psw-type">密码类型不合法（纯英文+数字）</span>
+				<span class="tip error hidden" id="err-capt">验证码错误，请核对后输入</span>
+				<!--  -->
+				<input type="text" id="email" class="
+				input-text" placeholder="请输入注册邮箱">
+				<input type="password" id="password" class="input-text" placeholder="请设置密码">
+				<input type="text" id="name" class=" input-text" placeholder="请设置名号">
+				<div class="sex-box">
+					<div class="sex-option option-box">
+						<span class="single-option"></span>
+						<input type="radio" name="Sex" value="female" id="female" checked="" />
+						<label for="female" >女</label>
+					</div>
+					<div class="sex-option option-box">
+						<span class="single-option"></span>
+						<input type="radio"  name="Sex" id="male" value="male" />
+						<label for="male" >男</label>
+					</div>
+				</div>
+				<div class="captcha-box"><input type="text" class="captcha-text input-text" id="captcha" placeholder="请输入验证码"><button type="button" class="btn-cap" id="btn-captcha">发送</button></div>
+				<button class="btn-submit btn-red" type="submit" id="btn-register">确认注册</button>
+			</div>
+		</div>
+	</body>
+</html>

@@ -11,8 +11,8 @@ from database import *
 from sms import send_mail
 from output import *
 from encrypt import *
-
-@route('/user/verify/send')
+from infoset import infoSet
+@route('/api/user/verify/send')
 class SendMail:
     def POST(self):
         input = web.input(email = None)
@@ -20,7 +20,7 @@ class SendMail:
         if input.email == None:
             return output(110)
 
-        if not re.compile(r'(([a-z\-\.]|[0-9]))+@[a-z\-\.]+$').match(input.email):
+        if not re.compile(r'(([a-z\-\.]|[0-9]))+@[a-z\-\.]+.com$').match(input.email):
             return output(120)
 
 
@@ -69,20 +69,25 @@ class SendMail:
 @route('/api/user/register')
 class UserRegister:
     def POST(self):
-        input = web.input(email = None,password = None,verify_code = None)
+        input = web.input(email = None,password = None,verify_code = None,name =None,is_male=None)
         if input.email == None or input.password == None or input.verify_code ==None:
             return output(110)
-
         if len(input.password) < 6 or len(input.password) > 18:
             return output(130)
 
         if not re.compile(r'[0-9A-Za-z_]+').match(input.password):
             return output(131)
+	if input.name ==None or input.is_male==None:
+	    return output(109)
+	try:
+	    input.is_male = int(input.is_male)
+	except:
+	    return output(113)
 
         db = getDb()
         results = db.select('user', vars = {'name':input.email},
                             where = "login_name=$name", what = "type, user_id")
-
+	
         if len(results) == 0:
             return output(431)
 
@@ -97,6 +102,7 @@ class UserRegister:
 
         t = db.transaction()
         try:
+	    infoSet.SetInfo(name=input.name,is_male = input.is_male,user_id=user.user_id)
             db.update('user', vars = {'id':user.user_id}, where = "user_id=$id",
                       type = '1', password = encrypt(input.password))
             db.delete('verify', vars = {'id':user.user_id}, where = "user_id=$id")

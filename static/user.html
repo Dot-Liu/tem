@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>一封</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/doT.min.js"></script>
+		<script type="text/javascript" src="js/user.js"></script>
+	</head>
+	<body>
+		<div class="user-box">
+			<header class="user-header">
+				<img src="img/logo.png" alt="logo-一封" class="user-logo">
+				<!-- 				<form  class="user-search-box">
+						<img src="img/find.png" alt="search" class="pic-search"></img>
+						<input class="search-text" placeholder="搜索">
+				</form> -->
+				<span class="user-title">与<span class="sole" id="sole">X X</span>的书信</span>
+				<div class="header-right">
+					<div class="user-thumb-box">
+						<div class="user-pic-box">
+						<img src="img/user.png" alt="user-thumbnail" class="user-thumb"></div>
+						<div class="user-inf-box">
+							<img src="img/user.png" alt="userinf" class="pic-user">
+							<div class="profile">这个人很懒，什么也没有留下</div>
+							<button class="btn-user-inf cut-off" id="cut-off">断绝关系</button><button class="btn-user-inf" id="log-out">退出登录</button></button>
+						</div>
+					</div>
+						<a href="write.html" class="btn-write-letter">写信给Ta</a>
+					</div>
+			</header>
+			<div class="user-content">
+				<div class="left-content"><div class="letter-status letter-status-active" id="letter-status-noread">未读<span class="warn-read-number" id="noread-num"></span></div><div class="letter-status" id="letter-status-read">已读</div>
+				<ul class="letter-list" id="letter-list">
+					
+				</ul>
+				<!-- dot.js -->
+				<script  id="letter-tmpl" type="text/template">
+						{{ for (var i = 0, len = it.data.length; i <len; i++) {
+						}}
+						<li class="letter" data-id={{=it.data[i].letter_id}}><span class="letter-date">{{=it.data[i].add_time}}</span><span class="letter-time">7:00</span>
+					<span class="letter-title">{{=it.data[i].title}}</span></li>
+					{{ }}}
+				</script>
+				<span class="user-letter-number">共<span class="letter-number" id="letter-num">x</span>封书信</span>
+			</div>
+			<div class="user-right-content">
+				<div class="write-content-box">
+					<img src="img/triangle.png" class="tip-triangle">
+					<div class="write-content " id="write-content"></div>
+					<!-- <a class="btn-write" id="btn-reply" href="write.html">回信</a> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
